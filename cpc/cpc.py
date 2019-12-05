@@ -1,9 +1,12 @@
-from digitalio import DigitalInOut
-import board
-import busio
+#from digitalio import DigitalInOut
+#import board
+#import busio
+#import time
+#from adafruit_bus_device.spi_device import SPIDevice
+
 import time
 import math
-from adafruit_bus_device.spi_device import SPIDevice
+from machine import Pin, SPI
 
 WRITE_SINGLE_BYTE = 0x00
 WRITE_BURST = 0x40
@@ -111,9 +114,11 @@ RCCTRL0_STATUS = 0xFD  # Last RC Oscillator Calibration Result
 PA_TABLE = [0x00, 0xC0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00]
 
 class CC1101:
-    def __init__(self, spi, cs, gdo0, baudrate, frequency, syncword, offset=0): #optional frequency offset in Hz
+    def __init__(self, spi, cs, gdo0, baudrate, frequency, syncword): #optional frequency offset in Hz
+        offset = 0
         self.gdo0 = gdo0
-        self.device = SPIDevice(spi, cs, baudrate=baudrate, polarity=0, phase=0)
+        # self.device = SPIDevice(spi, cs, baudrate=baudrate, polarity=0, phase=0)
+        self.device = spi
         self.strobe(SRES) # reset
 
         self.setFrequency(frequency, offset)

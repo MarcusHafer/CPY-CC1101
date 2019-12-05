@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="24b5614a-88f9-496e-9afa-bf61689e045c" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Setup Script" />
+      </list>
+    </option>
+  </component>
+  <component name="MicroPythonDevices" devicePath="/dev/ttyUSB0" />
+  <component name="ProjectId" id="1UI7QQt7VBRsCA8HbfhrPlSiS9W" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/cpc" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.micropython.configurable" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="CPY" type="MicroPythonConfigurationType" factoryName="MicroPython" path="$PROJECT_DIR$/cpc">
+      <module name="CPY-CC1101" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="24b5614a-88f9-496e-9afa-bf61689e045c" name="Default Changelist" comment="" />
+      <created>1575032238084</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1575032238084</updated>
+      <workItem from="1575032239461" duration="704000" />
+      <workItem from="1575033168907" duration="203000" />
+      <workItem from="1575033390175" duration="178000" />
+      <workItem from="1575033587369" duration="1112000" />
+      <workItem from="1575034871744" duration="431000" />
+      <workItem from="1575036130447" duration="6353000" />
+      <workItem from="1575443057287" duration="2489000" />
+      <workItem from="1575446116443" duration="268000" />
+      <workItem from="1575446446213" duration="240000" />
+      <workItem from="1575448079244" duration="2558000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

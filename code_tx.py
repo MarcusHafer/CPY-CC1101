@@ -1,8 +1,10 @@
-from digitalio import DigitalInOut
-import board
-import busio
+#from digitalio import DigitalInOut
+#import board
+#import busio
 import time
-from adafruit_bus_device.spi_device import SPIDevice
+#from adafruit_bus_device.spi_device import SPIDevice
+
+from machine import SPI, Pin
 
 WRITE_SINGLE_BYTE = 0x00
 WRITE_BURST = 0x40
@@ -113,14 +115,14 @@ PA_TABLE = [0x00,0xC0,0x00,0x00,0x00,0x00,0x00,0x00]
 def writeSingleByte(address, byte_data):
     databuffer = bytearray([WRITE_SINGLE_BYTE | address, byte_data])
     with device as d:
-    	d.write(databuffer)
+        d.write(databuffer)
 
 def readSingleByte(address):
     databuffer = bytearray([READ_SINGLE_BYTE | address, 0x00])
     
     with device as d:
-    	d.write(databuffer, end=1)
-    	d.readinto(databuffer, end=2)
+        d.write(databuffer, end=1)
+        d.readinto(databuffer, end=2)
     return databuffer[0]
 
 def readBurst(start_address, length):        
@@ -137,19 +139,27 @@ def readBurst(start_address, length):
 def writeBurst(address, data):
     data.insert(0, (WRITE_BURST | address))
     with device as d:
-    	d.write(bytearray(data))
+        d.write(bytearray(data))
 
 def strobe(address):
     databuffer = bytearray([address, 0x00])
     with device as d:
-    	d.write(databuffer, end=1)
-    	d.readinto(databuffer, end=2)
+        d.write(databuffer, end=1)
+        d.readinto(databuffer, end=2)
     return databuffer
 
-mySPI = busio.SPI(board.SCK, MOSI=board.MOSI, MISO=board.MISO)
-cs = DigitalInOut(board.D9)
-gdo0 = DigitalInOut(board.D10)
-device = SPIDevice(mySPI, cs, baudrate=50000, polarity=0, phase=0) 
+#mySPI = busio.SPI(board.SCK, MOSI=board.MOSI, MISO=board.MISO)
+#cs = DigitalInOut(board.D9)
+#gdo0 = DigitalInOut(board.D10)
+#device = SPIDevice(mySPI, cs, baudrate=50000, polarity=0, phase=0)
+
+sck = Pin(14) 	# serial clock
+mosi = Pin(13)	# SPI data out (Master Out Slave In)
+miso = Pin(14)	# SPI data in (Master In Slave Out)
+gdo0 = Pin(10)	# GPIO Digital Out 0
+cs = Pin(9)		# Chip Select
+device = SPI(1, baudrate=50000, polarity=0, phase=0, sck=sck, mosi=mosi, miso=miso) # HSPI
+
 strobe(SRES)
 
 writeSingleByte(IOCFG2, 0x69)    
